@@ -4,9 +4,6 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 
-#  data --------------------------------------------------------------------
-
-
 # Define UI --------------------------------------------------------------------
 
 ui <- fluidPage(
@@ -17,6 +14,9 @@ ui <- fluidPage(
     sidebarPanel(
     
       h1("Henon Map"),
+      p("The Hénon map takes a point (xn, yn) in the plane and maps it to a new point"),
+      withMathJax("$$X_{n+1} = 1 + aX_n^2 + bY_n$$"),
+      withMathJax("$$Y_{n+1} = X_n$$"),
       p("Change the value of variables and observe the Henon Map"),
         
       # Select variable for a
@@ -55,6 +55,7 @@ ui <- fluidPage(
     
     # Output: Show Henon map
     mainPanel(
+      
       plotOutput(outputId = "Henon_map")
     )
   )
